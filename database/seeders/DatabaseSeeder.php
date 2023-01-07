@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('permission_role')->insert([
+            //Admin
             [
                 'permission_id' => 1,
                 'role_id' => 1,
@@ -61,6 +62,20 @@ class DatabaseSeeder extends Seeder
             [
                 'permission_id' => 3,
                 'role_id' => 1,
+            ],
+            // Manager
+            [
+                'permission_id' => 2,
+                'role_id' => 2,
+            ],
+            [
+                'permission_id' => 3,
+                'role_id' => 2,
+            ],
+            // Guest
+            [
+                'permission_id' => 3,
+                'role_id' => 3,
             ]
         ]);
 
@@ -69,8 +84,18 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@mail.com',
             'role_id' => 1,
         ]);
-        User::factory()->count(9)->create();
+        User::factory()->create([
+            'name' => 'Manager',
+            'email' => 'manager@mail.com',
+            'role_id' => 2,
+        ]);
+        User::factory()->create([
+            'name' => 'Guest',
+            'email' => 'guest@mail.com',
+            'role_id' => 3,
+        ]);
+        User::factory()->count(7)->create();
 
-        Post::factory()->count(20)->create();
+        Post::factory()->count(30)->create();
     }
 }

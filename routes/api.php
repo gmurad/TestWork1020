@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,10 @@ Route::controller(RoleController::class)->name('role.')->prefix('role')->group(f
     Route::get('/', 'index')->name('list');
     Route::post('/', 'store')->name('store');
     Route::get('/{id}', 'show')->name('show');
+});
+
+Route::controller(UserController::class)->name('user.')->prefix('user')->group(function(){
+    Route::get('/', 'index')->name('list');
 });
 
 Route::middleware('auth:api')->group(function(){

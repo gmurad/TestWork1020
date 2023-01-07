@@ -20,7 +20,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'role_id' => random_int(1,5),
+            'role_id' => random_int(1,3),
             'password' => Hash::make('password'),
         ];
     }

@@ -507,6 +507,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/post",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -514,7 +537,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjczMTA4MTM4LCJleHAiOjE2NzMxMTE3MzgsIm5iZiI6MTY3MzEwODEzOCwianRpIjoibnpjMVYzWDdYV1VJeGI5UyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.tn8msv-ywp-dndk7SHVQpeXnP8sBJ0clZJ0EeI8AAeU",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjczMTIyNjI3LCJleHAiOjE2NzMxMjYyMjcsIm5iZiI6MTY3MzEyMjYyNywianRpIjoiam12UmNTVlRJN0w3SzhYcCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.HG7bthn_KHDKXzwt3pTbQUP8bAO8XoKRQnEKYZo5Y6c",
 				"type": "string"
 			}
 		]
