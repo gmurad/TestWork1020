@@ -9,7 +9,6 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login','register']]);
@@ -17,6 +16,8 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        if(Auth::check()) Auth::logout();
+
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
@@ -31,19 +32,13 @@ class AuthController extends Controller
             ], 401);
         }
 
-        //$user = Auth::user();
-        return response()->json([
-                'status' => 'success',
-                'user' => Auth::user(),
-                'authorisation' => [
-                    'token' => $token,
-                    'type' => 'bearer',
-                ]
-            ]);
+        return $this->responseWith(user: Auth::user(), token: $token);
 
     }
 
     public function register(Request $request){
+        if(Auth::check()) Auth::logout();
+
         $fields = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -59,16 +54,7 @@ class AuthController extends Controller
         ]);
 
         $token = Auth::login($user);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'User created successfully',
-            //'user' => $user,
-            'user' => Auth::user(),
-            'authorisation' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
-        ]);
+        return $this->responseWith(user: $user, token: $token);
     }
 
     public function logout()
@@ -82,25 +68,18 @@ class AuthController extends Controller
 
     public function refresh()
     {
-        return response()->json([
-            'status' => 'success',
-            'user' => Auth::user(),
-            'authorisation' => [
-                'token' => Auth::refresh(),
-                'type' => 'bearer',
-            ]
-        ]);
+        return $this->responseWith(user: Auth::user(), token: Auth::refresh());
     }
 
-    // protected function responseWith(...$params){
-    //     $response = [
-    //         'status' => 'success',
-    //         'user' => Auth::user(),
-    //         'authorisation' => [
-    //             'token' => Auth::refresh(),
-    //             'type' => 'bearer',
-    //         ]
-    //     ];
-    //     return $response = array_merge($response, $params);
-    // }
+    protected function responseWith(...$params){
+        $responseArr = [
+            'status' => 'success',
+            'user' => $params['user'],
+            'authorisation' => [
+                'token' => $params['token'],
+                'type' => 'bearer',
+            ]
+        ];
+        return response()->json($responseArr);
+    }
 }

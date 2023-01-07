@@ -15,6 +15,6 @@ class RoleRepository implements RoleRepositoryInterface {
     }
 
     public function find($id){
-        return Role::find($id);
+        return Role::findOrFail($id);
     }
 }

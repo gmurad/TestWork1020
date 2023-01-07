@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class AccessToPostByRole
 {
@@ -18,7 +18,7 @@ class AccessToPostByRole
     public function handle(Request $request, Closure $next, $permission)
     {
         if(!$request->user()->isRoleHasPermission($permission)){
-            abort(response()->json(['message' => 'Unauthorized'], 403));
+            throw new AuthorizationException();
         } else {
             return $next($request);
         }

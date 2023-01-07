@@ -19,7 +19,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        echo $this->permissionRepository->all()->toJson();
+        return response()->json($this->permissionRepository->all()->toArray());
     }
 
     /**

@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        echo $this->postRepository->all()->toJson();
+        return response()->json($this->postRepository->all()->toArray());
     }
 
 

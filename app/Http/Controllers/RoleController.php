@@ -19,7 +19,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        echo $this->roleRepository->all()->toJson();
+        return response()->json($this->roleRepository->all()->toArray());
     }
 
 
@@ -51,7 +51,7 @@ class RoleController extends Controller
     {
         $role = $this->roleRepository->find($id);
         $role->permissions_id = $role->permissions()->get();
-        echo $role->toJson();
+        return response()->json($role->toArray());
     }
 
 }
