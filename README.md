@@ -5,7 +5,14 @@ For fill dummy data have to run ```php artisan migrate --seed```
 
 ## Navigation
 
-There is three users by defaul Admin, Manager and Guest.
-Admin can create, delete and read posts.
-Manager has the right to delete and read posts.
-Guest can only read posts.
+There is three users by defaul Admin, Manager and Guest.<br />
+Admin can create, delete and read posts.<br />
+Manager has the rights to delete and read posts.<br />
+Guest can only read posts.<br />
+
+## Users credentials
+Email and password for Admin, Manager and Guest according to<br />
+"admin@mail.com", "password"<br />
+"manager@mail.com", "password"<br />
+"guest@mail.com", "password"<br />
+
