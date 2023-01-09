@@ -1,9 +1,9 @@
 
-## Install
+## Installation
 
 For fill dummy data have to run ```php artisan migrate --seed```
 
-## Navigation
+## Description
 
 There is three users by defaul Admin, Manager and Guest.<br />
 Admin can create, delete and read posts.<br />
