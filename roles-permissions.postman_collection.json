@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "1142df1f-03a0-4b02-8b24-be4ed023a080",
-		"name": "roles-permission",
+		"name": "roles-permissions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -207,12 +207,12 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Execute",
+							"value": "Share",
 							"type": "default"
 						},
 						{
 							"key": "slug",
-							"value": "execute",
+							"value": "share",
 							"type": "default"
 						}
 					]
@@ -537,7 +537,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjczMTIyNjI3LCJleHAiOjE2NzMxMjYyMjcsIm5iZiI6MTY3MzEyMjYyNywianRpIjoiam12UmNTVlRJN0w3SzhYcCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.HG7bthn_KHDKXzwt3pTbQUP8bAO8XoKRQnEKYZo5Y6c",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjc0MzkwNDk3LCJleHAiOjE2NzQzOTQwOTcsIm5iZiI6MTY3NDM5MDQ5NywianRpIjoiN1IyOTY5YXJvZlRBMDZUMSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.bsSKsQIZ2aSW6rkuM7duxBb9PRsMN55Fw2Gzxwf-4KU",
 				"type": "string"
 			}
 		]
