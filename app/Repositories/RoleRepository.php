@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Repositories\Interfaces\RoleRepositoryInterface;
 use App\Models\Role;
+use App\Models\Permission;
 
 class RoleRepository implements RoleRepositoryInterface {
     public function all(){
@@ -16,5 +17,9 @@ class RoleRepository implements RoleRepositoryInterface {
 
     public function find($id){
         return Role::findOrFail($id);
+    }
+
+    public function permissions(Role $role){
+        return $role->belongsToMany(Permission::class);
     }
 }

@@ -38,7 +38,7 @@ class RoleController extends Controller
         ]);
 
         $role = $this->roleRepository->create($data);
-        $role->permissions()->sync($data['permission_id']);
+        $this->roleRepository->permissions($role)->sync($data['permission_id']);
     }
 
     /**
@@ -50,7 +50,7 @@ class RoleController extends Controller
     public function show($id)
     {
         $role = $this->roleRepository->find($id);
-        $role->permissions_id = $role->permissions()->get();
+        $role->permissions_id = $this->roleRepository->permissions($role)->get();
         return response()->json($role->toArray());
     }
 

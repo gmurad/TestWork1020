@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class AuthController extends Controller
 {
-    public function __construct()
+    public function __construct(private UserRepositoryInterface $userRepository)
     {
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
@@ -46,7 +46,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:6',
         ]);
 
-        $user = User::create([
+        $user = $this->userRepository->create([
             'name' => $fields['name'],
             'email' => $fields['email'],
             'role_id' => $fields['role_id'],
