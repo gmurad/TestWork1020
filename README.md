@@ -17,5 +17,5 @@ Email and password for Admin, Manager and Guest according to<br />
 "guest@mail.com", "password"<br />
 
 ## Postman instructions
-Use file "roles-permissions.postman_collection.json" for import collection<br />
-After login or register save Bearer Token in section roles-permissions->Authorization
+Use file "roles-permissions.postman_collection.json" for import collection.<br />
+After login or register save Bearer Token in section roles-permissions->Authorization.
